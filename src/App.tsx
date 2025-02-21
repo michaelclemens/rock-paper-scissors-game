@@ -1,9 +1,5 @@
-function App() {
-  return (
-    <>
-      <h1>Vite Boilerplate</h1>
-    </>
-  )
-}
+import Game from './pages/Game'
 
-export default App
+export default function App() {
+  return <Game />
+}

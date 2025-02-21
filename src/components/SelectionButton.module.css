@@ -1,0 +1,93 @@
+.selection-button {
+  flex: none;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 100%;
+  background: var(--background-gradient) center no-repeat;
+  filter: drop-shadow(var(--button-front-shadow) hsl(from var(--button-shadow) h s l / 0.7))
+    drop-shadow(var(--button-drop-shadow) rgba(0, 0, 0, 0.25));
+
+  --button-front-shadow: 0 6px;
+  --button-drop-shadow: 0 6px 5px;
+
+  @media (width >= 48rem /* 768px */) {
+    width: 11rem;
+    height: 11rem;
+  }
+
+  &.select {
+    cursor: pointer;
+    transition-property: filter, transform, translate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function) /* cubic-bezier(0.4, 0, 0.2, 1) */);
+    transition-duration: var(--tw-duration, var(--default-transition-duration) /* 150ms */);
+
+    &:hover {
+      --button-front-shadow: 0 9px;
+      --button-drop-shadow: 0 9px 5px;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      --button-front-shadow: 0 0;
+      --button-drop-shadow: 0 6px 3px;
+      transform: translateY(6px);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--button-icon) center/50% no-repeat #ffffff;
+    box-shadow:
+      inset 0 6px rgb(186, 191, 213, 0.7),
+      0 1px rgb(151, 151, 151, 0.7);
+  }
+
+  &.rock {
+    --background-gradient: var(--color-rock-gradient);
+    --button-shadow: var(--color-rock-end);
+    --button-icon: url('/images/icon-rock.svg');
+  }
+  &.paper {
+    --background-gradient: var(--color-paper-gradient);
+    --button-shadow: var(--color-paper-end);
+    --button-icon: url('/images/icon-paper.svg');
+  }
+  &.scissors {
+    --background-gradient: var(--color-scissors-gradient);
+    --button-shadow: var(--color-scissors-end);
+    --button-icon: url('/images/icon-scissors.svg');
+  }
+  &.lizard {
+    --background-gradient: var(--color-lizard-gradient);
+    --button-shadow: var(--color-lizard-end);
+    --button-icon: url('/images/icon-lizard.svg');
+  }
+  &.spock {
+    --background-gradient: var(--color-spock-gradient);
+    --button-shadow: var(--color-spock-end);
+    --button-icon: url('/images/icon-spock.svg');
+  }
+  &.winner {
+    box-shadow:
+      0 0 0 40px rgba(255, 255, 255, 0.02),
+      0 0 0 80px rgba(255, 255, 255, 0.02),
+      0 0 0 120px rgba(255, 255, 255, 0.02);
+  }
+}
+
+.placeholder {
+  position: relative;
+  width: 11rem;
+  height: 11rem;
+  flex: none;
+  border-radius: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  animation: var(--animate-pulse);
+}
