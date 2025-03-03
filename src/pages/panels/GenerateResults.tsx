@@ -1,7 +1,7 @@
 import SelectionResult from '../../components/SelectionResult'
 import useGame from '../../hooks/useGame'
 import useSelection from '../../hooks/useSelection'
-import { PlayerEnums } from '../../lib/types'
+import { PlayerEnums, SelectionTypes } from '../../lib/types'
 import { useEffect } from 'react'
 
 const HOUSE_SELECTION_TIMEOUT = 1000
@@ -17,7 +17,7 @@ export default function GenerateResults() {
       setHouseSelection(randomSelection)
 
       setTimeout(() => {
-        const result = determineResult(selection, randomSelection)
+        const result = determineResult(selection as SelectionTypes, randomSelection)
         setResult(result)
         updateScore(result)
       }, SELECTION_RESULTS_TIMEOUT)
