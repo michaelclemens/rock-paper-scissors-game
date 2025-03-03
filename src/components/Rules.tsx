@@ -1,11 +1,11 @@
-import { GameContext } from '../lib/contexts'
+import useGame from '../hooks/useGame'
 import closeIcon from '/images/icon-close.svg'
 import bonusRulesImg from '/images/image-rules-bonus.svg'
 import rulesImg from '/images/image-rules.svg'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
 export default function Rules() {
-  const { isBonusGame } = useContext(GameContext)
+  const { isBonusGame } = useGame()
   const [opened, setOpened] = useState(false)
   return (
     <>

@@ -1,22 +1,15 @@
 import SelectionResult from '../../components/SelectionResult'
-import { PlayerEnums, ResultEnums, ResultTypes, SelectionTypes } from '../../lib/types'
+import useSelection from '../../hooks/useSelection'
+import { PlayerEnums, ResultEnums } from '../../lib/types'
 
-export default function Results({
-  selected,
-  houseSelected,
-  result,
-  onPlayAgain,
-}: {
-  selected: SelectionTypes
-  houseSelected: SelectionTypes
-  result: ResultTypes
-  onPlayAgain: () => void
-}) {
+export default function Results() {
+  const { selection, houseSelection, result, onPlayAgain } = useSelection()
+
   return (
     <div className="flex w-full flex-col">
       <div className="text-barlow-semi flex w-full flex-grow justify-evenly text-center tracking-widest text-white uppercase">
-        <SelectionResult player={PlayerEnums.user} selection={selected} winner={result === ResultEnums.win} />
-        <SelectionResult player={PlayerEnums.house} selection={houseSelected} winner={result === ResultEnums.lose} />
+        <SelectionResult player={PlayerEnums.user} selection={selection ?? undefined} winner={result === ResultEnums.win} />
+        <SelectionResult player={PlayerEnums.house} selection={houseSelection ?? undefined} winner={result === ResultEnums.lose} />
       </div>
       <div className="mt-12 flex flex-col items-center">
         <div className="text-barlow-bold mb-5 text-5xl text-white uppercase">

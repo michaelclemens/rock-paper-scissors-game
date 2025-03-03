@@ -1,19 +1,19 @@
 import SelectionButton from '../../components/SelectionButton'
-import { GameContext, getSelections } from '../../lib/contexts'
-import { GameEnums, SelectionTypes } from '../../lib/types'
+import useGame from '../../hooks/useGame'
+import useSelection from '../../hooks/useSelection'
+import { GameEnums } from '../../lib/types'
 import styles from './Selection.module.css'
-import { useContext } from 'react'
 
-export default function Selection({ onSelect }: { onSelect: (selection: SelectionTypes) => void }) {
-  const { gameType, isBonusGame, setGameType } = useContext(GameContext)
-  const selections = getSelections(gameType)
+export default function Selection() {
+  const { isBonusGame, availableSelections, setGameType } = useGame()
+  const { setSelection } = useSelection()
 
   return (
     <>
       <div className={`${styles.wrapper} ${isBonusGame ? styles[GameEnums.bonus] : styles[GameEnums.original]}`}>
-        {selections.map(selection => (
+        {availableSelections.map(selection => (
           <div key={selection} className="flex items-center justify-center">
-            <SelectionButton selection={selection} onSelect={onSelect} />
+            <SelectionButton selection={selection} onSelect={() => setSelection(selection)} />
           </div>
         ))}
       </div>
