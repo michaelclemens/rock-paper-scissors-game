@@ -23,14 +23,14 @@ export default function Rules() {
         <div className="my-10 flex w-full justify-center md:my-0 md:justify-start">
           <h1 className="text-barlow-bold text-dark text-3xl uppercase">Rules</h1>
           <button onClick={() => setOpened(false)} className="ml-auto hidden cursor-pointer md:block">
-            <img src={closeIcon} />
+            <img src={closeIcon} alt="Close icon" />
           </button>
         </div>
         <div className="flex flex-grow">
-          <img src={isBonusGame ? bonusRulesImg : rulesImg} className="my-auto w-full flex-none" />
+          <img src={isBonusGame ? bonusRulesImg : rulesImg} className="my-auto w-full flex-none" alt="Game rules image" />
         </div>
         <button onClick={() => setOpened(false)} className="my-10 cursor-pointer md:hidden">
-          <img src={closeIcon} />
+          <img src={closeIcon} alt="Close icon" />
         </button>
       </div>
     </>
