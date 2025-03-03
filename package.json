@@ -1,8 +1,9 @@
 {
-  "name": "vite-boilerplate",
+  "name": "rock-paper-scissors-game",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "homepage": "https://michaelclemens.github.io/rock-paper-scissors-game/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
