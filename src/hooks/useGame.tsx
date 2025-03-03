@@ -37,5 +37,12 @@ export default function useGame() {
     [score, setScore]
   )
 
-  return { gameType, setGameType, isBonusGame: gameType === GameEnums.bonus, score, updateScore, availableSelections: getAvailableSelections(gameType) }
+  return {
+    gameType,
+    setGameType,
+    isBonusGame: gameType === GameEnums.bonus,
+    score,
+    updateScore,
+    availableSelections: getAvailableSelections(gameType),
+  }
 }
