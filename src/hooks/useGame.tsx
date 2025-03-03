@@ -4,14 +4,14 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useCallback, useCon
 
 type GameContextType = {
   gameType: GameTypes
-  setGameType: Dispatch<SetStateAction<GameEnums>>
+  setGameType: Dispatch<SetStateAction<GameTypes>>
   score: number
   setScore: Dispatch<SetStateAction<number>>
 }
 const GameContext = createContext<GameContextType>({ gameType: GameEnums.original, setGameType: () => {}, score: 0, setScore: () => {} })
 
 export const GameContextProvider = ({ children }: { children: ReactNode }) => {
-  const [gameType, setGameType] = useState(GameEnums.original)
+  const [gameType, setGameType] = useState<GameTypes>(GameEnums.original)
   const [score, setScore] = useState(0)
 
   return <GameContext.Provider value={{ gameType, setGameType, score, setScore }}>{children}</GameContext.Provider>
@@ -37,9 +37,14 @@ export default function useGame() {
     [score, setScore]
   )
 
+  const changeGameType = (gameType: GameTypes) => {
+    setGameType(gameType)
+    setScore(0)
+  }
+
   return {
     gameType,
-    setGameType,
+    changeGameType,
     isBonusGame: gameType === GameEnums.bonus,
     score,
     updateScore,

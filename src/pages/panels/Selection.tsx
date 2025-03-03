@@ -5,7 +5,7 @@ import { GameEnums } from '../../lib/types'
 import styles from './Selection.module.css'
 
 export default function Selection() {
-  const { isBonusGame, availableSelections, setGameType } = useGame()
+  const { isBonusGame, availableSelections, changeGameType } = useGame()
   const { setSelection } = useSelection()
 
   return (
@@ -20,7 +20,7 @@ export default function Selection() {
       <div className="bottom-0 left-0 p-10 md:fixed">
         <button
           className="text-barlow-semi cursor-pointer rounded-md px-10 py-2 tracking-widest text-white uppercase ring-1 ring-white/75"
-          onClick={() => setGameType(isBonusGame ? GameEnums.original : GameEnums.bonus)}
+          onClick={() => changeGameType(isBonusGame ? GameEnums.original : GameEnums.bonus)}
         >
           {isBonusGame ? 'Original' : 'Bonus'}
         </button>
