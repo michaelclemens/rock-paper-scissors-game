@@ -13,12 +13,13 @@ export default function SelectionButton({
   return (
     <>
       {selection ? (
-        <div
+        <button
+          aria-label={`${selection} button`}
           className={`${styles['selection-button']} ${styles[selection]} ${winner ? styles.winner : ''} ${onSelect ? styles.select : ''}`}
           onClick={() => onSelect && onSelect(selection)}
         />
       ) : (
-        <div className={`${styles.placeholder}`} />
+        <div aria-label="placeholder selection" className={`${styles.placeholder}`} />
       )}
     </>
   )
