@@ -13,7 +13,7 @@ This is a solution to the [Rock, Paper, Scissors game](https://www.frontendmento
 ## Overview
 
 ### Screenshot
-
+![Screenshot 2025-03-04 at 15 37 16](https://github.com/user-attachments/assets/7c648c41-834a-487a-9561-28a8f5d9dffb)
 
 ### Links
 
